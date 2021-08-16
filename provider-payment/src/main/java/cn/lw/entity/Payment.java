@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
+
 /**
  * @Author: linwei
  * @CreteTime: 2021/8/15
@@ -12,7 +14,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Payment {
-    private long id;
-    private String name;
+public class Payment implements Serializable {
+    private Long id;
+    private String serial;
 }
