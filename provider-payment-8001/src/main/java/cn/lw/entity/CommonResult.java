@@ -10,18 +10,17 @@ import lombok.NoArgsConstructor;
  * @Description:TODO
  */
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
+@AllArgsConstructor//全参
+@NoArgsConstructor//无参
 public class CommonResult<T>{
    private Integer code;   //状态码
    private String message; //自定义信息
    private T      data;      //接收数据
 
-   public CommonResult(Integer code,String message){
-      this(code,message);
-      /*this.code=code;
+   public CommonResult(Integer code,String message){//无参data
+      //this(code,message);
+      this.code=code;
       this.message=message;
-      this.data=data;*/
 
    }
 }

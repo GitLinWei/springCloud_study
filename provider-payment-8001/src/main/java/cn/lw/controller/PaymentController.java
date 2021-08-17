@@ -4,10 +4,7 @@ import cn.lw.Service.PaymentService;
 import cn.lw.entity.CommonResult;
 import cn.lw.entity.Payment;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
@@ -33,7 +30,7 @@ public class PaymentController {
 
     }
 
-    @GetMapping("/payment/createPay")
+    @PostMapping("/payment/createPay")
     public CommonResult createPay(@RequestBody Payment payment){
         int result=paymentService.createPay(payment);
         log.info("---插入成功："+result);
