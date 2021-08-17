@@ -10,7 +10,7 @@
   <packaging>pom</packaging>
 
   <modules>
-    <module>provider-payment</module>
+    <module>provider-payment-8001</module>
   </modules>
 
   <!--合并看看-->

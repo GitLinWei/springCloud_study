@@ -17,11 +17,11 @@ public class CommonResult<T>{
    private String message; //自定义信息
    private T      data;      //接收数据
 
-   public CommonResult(Integer code,String message,T data){
-      //this(code,message);
-      this.code=code;
+   public CommonResult(Integer code,String message){
+      this(code,message);
+      /*this.code=code;
       this.message=message;
-      this.data=data;
+      this.data=data;*/
 
    }
 }
