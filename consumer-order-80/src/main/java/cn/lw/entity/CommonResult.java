@@ -17,7 +17,7 @@ public class CommonResult<T>{
    private String message; //自定义信息
    private T      data;      //接收数据
 
-   public CommonResult(Integer code,String message){//无参data
+   public CommonResult(Integer code, String message){//无参data
       this(code,message,null);
      /* this.code=code;
       this.message=message;*/

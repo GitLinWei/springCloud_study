@@ -3,7 +3,7 @@
 
 <mapper namespace="cn.lw.Dao.PaymentDao">
   <insert id="createPay" parameterType="Payment" useGeneratedKeys="true" keyProperty="id">
-      insert into Payment(serial) value (#{serial});
+      insert into payment(serial) value (#{serial});
   </insert>
 
     <resultMap id="BaseResultMap" type="cn.lw.entity.Payment">
@@ -12,6 +12,6 @@
     </resultMap>
 
     <select id="getPaymentById" parameterType="Long" resultMap="BaseResultMap">
-       select * from Payment where id=#{id}
+       select * from payment where id=#{id}
     </select>
 </mapper>
