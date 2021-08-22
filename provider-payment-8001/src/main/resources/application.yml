@@ -15,3 +15,12 @@ spring:
 mybatis:
     mapperLocations: classpath:mapper/*.xml
     type-aliases-package: cn.lw.entity    # 所有Entity别名类所在包
+
+eureka:
+    client:
+      registerWithEureka: true
+      fetchRegistry: true
+      service-url:
+          #defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka
+        #指向注册中心的地址
+       defaultZone: http://localhost:7001/eureka

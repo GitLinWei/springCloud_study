@@ -1,14 +1,9 @@
 package cn.lw.controller;
 
-import cn.lw.config.ApplicationContextConfig;
 import cn.lw.entity.CommonResult;
 import cn.lw.entity.Payment;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.HttpMethod;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.Resource;
@@ -31,7 +26,7 @@ public class OrderController {
     }
 
     @PostMapping("/consumer/payment/createPay")
-    public CommonResult<Payment> createPay(Payment payment){
+    public CommonResult<Payment> createPay(@RequestBody Payment payment){
         log.info("插入结果："+payment);
         return restTemplate.postForObject(PAY_URL+"/payment/createPay",payment,CommonResult.class);
     }

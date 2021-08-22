@@ -416,6 +416,14 @@
         </CLASSES>
       </library>
     </orderEntry>
+    <orderEntry type="module" module-name="api-commons"/>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://D:/maven_repository/cn/hutool/hutool-all/5.1.0/hutool-all-5.1.0.jar!/"/>
+        </CLASSES>
+      </library>
+    </orderEntry>
     <orderEntry type="module-library">
       <library>
         <CLASSES>
