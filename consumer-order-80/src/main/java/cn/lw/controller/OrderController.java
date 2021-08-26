@@ -18,7 +18,9 @@ import javax.annotation.Resource;
 public class OrderController {
     @Resource
     private RestTemplate restTemplate;
-    private static final String PAY_URL="http://localhost:8001";
+    //private static final String PAY_URL="http://localhost:8001";
+    private static final String PAY_URL="http://provider-payment";//通过服务名称找到集群的client，而非端口号
+
 
     @GetMapping("/consumer/payment/getPaymentById/{id}")
     public CommonResult<Payment> getPaymentById(@PathVariable("id") Long id){
