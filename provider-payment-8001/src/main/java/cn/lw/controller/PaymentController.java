@@ -27,7 +27,7 @@ public class PaymentController {
     public CommonResult getPaymentById(@PathVariable("id") Long id){
        Payment payment=paymentService.getPaymentById(id);
        if(payment!=null){
-           return new CommonResult(200,"获取信息成功，serverport:"+serverPort,payment);
+           return new CommonResult(200,"获取信息成功，serverPort:"+serverPort,payment);
        }else {
            return new CommonResult(200,"无法获取信息，ID="+id,payment);
        }
