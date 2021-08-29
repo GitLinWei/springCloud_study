@@ -5,9 +5,12 @@ import cn.lw.entity.CommonResult;
 import cn.lw.entity.Payment;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.client.ServiceInstance;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @Author: linwei
@@ -22,6 +25,9 @@ public class PaymentController {
 
     @Value("${server.port}")//获取本服务端口
     private String serverPort;
+
+    @Resource
+    private DiscoveryClient discoveryClient; //服务发现，微服务注册信息
 
     @GetMapping("/payment/getPaymentById/{id}")
     public CommonResult getPaymentById(@PathVariable("id") Long id){
@@ -43,5 +49,19 @@ public class PaymentController {
         }else {
             return new CommonResult(200,"插入数据库失败",null);
         }
+    }
+
+    @GetMapping("payment/discovery")
+    public Object discovery(){
+       List<String>services =discoveryClient.getServices();//微服务名称
+       for (String service:services){
+           log.info("微服务Elment："+service);
+       }
+
+       List<ServiceInstance>instances=discoveryClient.getInstances("PROVIDER-PAYMENT");//根据微服务名获取所有实例
+        for (ServiceInstance instance:instances){
+            log.info(instance.getServiceId()+"\t"+instance.getHost()+"\t"+instance.getPort()+"\t"+instance.getUri());
+        }
+        return this.discoveryClient;
     }
 }
