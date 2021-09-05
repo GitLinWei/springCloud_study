@@ -1,6 +1,6 @@
 package cn.lw.controller;
 
-import cn.lw.Service.PaymentService;
+import cn.lw.service.PaymentService;
 import cn.lw.entity.CommonResult;
 import cn.lw.entity.Payment;
 import lombok.extern.slf4j.Slf4j;

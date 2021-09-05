@@ -1,4 +1,4 @@
-package cn.lw.Dao;
+package cn.lw.dao;
 
 import cn.lw.entity.Payment;
 import org.apache.ibatis.annotations.Mapper;

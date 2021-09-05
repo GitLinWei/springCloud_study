@@ -1,7 +1,7 @@
-package cn.lw.Service.impl;
+package cn.lw.service.impl;
 
-import cn.lw.Dao.PaymentDao;
-import cn.lw.Service.PaymentService;
+import cn.lw.dao.PaymentDao;
+import cn.lw.service.PaymentService;
 import cn.lw.entity.Payment;
 import org.springframework.stereotype.Service;
 

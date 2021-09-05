@@ -1,4 +1,4 @@
-package cn.lw.Service;
+package cn.lw.service;
 
 import cn.lw.entity.Payment;
 

@@ -1,17 +1,18 @@
-package cn.lw;
+package cn.lw.run;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
+/**
+ * @Author linwei
+ * @Date 2021/8/29 17:21
+ * @Description TODO
+ */
 @SpringBootApplication
-@EnableEurekaClient
-@EnableDiscoveryClient //服务信息
-public class Provider_Payment8001 {
-
+@EnableDiscoveryClient
+public class Provider_Payment8006 {
     public static void main(String[] args) {
-        SpringApplication.run(Provider_Payment8001.class, args);
+        SpringApplication.run(Provider_Payment8006.class,args);
     }
-
 }
