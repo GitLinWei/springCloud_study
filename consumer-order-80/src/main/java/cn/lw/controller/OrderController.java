@@ -2,12 +2,20 @@ package cn.lw.controller;
 
 import cn.lw.entity.CommonResult;
 import cn.lw.entity.Payment;
+import cn.lw.lb.LoadBalance;
+import com.sun.jndi.toolkit.url.Uri;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.cloud.client.ServiceInstance;
+
+import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestOperations;
 import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.Resource;
+import java.net.URI;
+import java.util.List;
 
 /**
  * @Author: linwei
@@ -19,6 +27,10 @@ import javax.annotation.Resource;
 public class OrderController {
     @Resource
     private RestTemplate restTemplate;
+    @Resource
+    private LoadBalance loadBalance;
+    @Resource
+    private DiscoveryClient discoveryClient;
     //private static final String PAY_URL="http://localhost:8001";
     private static final String PAY_URL="http://provider-payment";//通过服务名称找到集群的client，而非端口号
 
@@ -58,6 +70,18 @@ public class OrderController {
             return body;
         }else {
             return new CommonResult<>(444,"插入失败");
+        }
+    }
+
+    @GetMapping(value = "/consumer/payment/lb")//自定义LoadBalance
+    public String getPaymentLB() {
+        List<ServiceInstance> instanceList=discoveryClient.getInstances("provider-payment");
+        if(instanceList==null || instanceList.size()<=0){
+            return null;
+        }else {
+            ServiceInstance serviceInstance=loadBalance.instances(instanceList);
+            URI uri=serviceInstance.getUri();
+            return restTemplate.getForObject(uri+"/payment/lb",String.class);
         }
     }
 
