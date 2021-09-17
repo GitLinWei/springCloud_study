@@ -20,7 +20,9 @@
     <module>cousumerzk-order-80</module>
     <module>provider-payment-Consul-8006</module>
     <module>consumerConsul-order-80</module>
-      <module>consumer-feign-order-80</module>
+    <module>consumer-feign-order-80</module>
+    <module>provider-payment-Hystrix-8001</module>
+
 
   </modules>
 
