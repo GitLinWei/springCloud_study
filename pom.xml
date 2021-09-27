@@ -23,6 +23,7 @@
     <module>consumer-feign-order-80</module>
     <module>provider-payment-Hystrix-8001</module>
     <module>consumer-feign-Hystrix-80</module>
+      <module>consumer-hystrix-dashboard-9001</module>
 
 
   </modules>
