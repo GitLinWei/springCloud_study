@@ -21,6 +21,10 @@ spring:
           uri: lb://provider-payment
           predicates:
               - Path=/payment/lb/**
+              #- After=2021-10-02T10:50:47.799+08:00[Asia/Shanghai]
+              #- Cookie=username,linwei #带cookie访问
+              #- Query=param1,value     #带参数访问
+              #- Header=X-Request-Id, \d+  # 请求头要有X-Request-Id属性并且值为整数的正则表达式
 
         - id: payment_route3
           uri: http://news.baidu.com/guonei
