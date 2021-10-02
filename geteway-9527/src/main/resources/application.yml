@@ -20,11 +20,18 @@ spring:
           #uri: http://localhost:8001
           uri: lb://provider-payment
           predicates:
-              - Path=/payment/lb/**
-              #- After=2021-10-02T10:50:47.799+08:00[Asia/Shanghai]
-              #- Cookie=username,linwei #带cookie访问
-              #- Query=param1,value     #带参数访问
-              #- Header=X-Request-Id, \d+  # 请求头要有X-Request-Id属性并且值为整数的正则表达式
+            - Path=/payment/lb/**
+            #- After=2021-10-02T10:50:47.799+08:00[Asia/Shanghai]
+            #- Cookie=username,linwei #带cookie访问
+            #- Query=param1,value     #带参数访问
+            - Header=X-Request-Id, \d+  # 请求头要有X-Request-Id属性并且值为整数的正则表达式
+#          filters:
+#            - AddRequestParameter=name,Pay #增加查询参数
+#            - AddRequestHeader=X-Request-Red, Blue-{segment} #增加请求头参数
+#            - AddResponseHeader=foo, bar-{segment} #增加响应头中参数
+#            - RemoveRequestHeader=X-Request-Foo #删除指定的请求头参数
+#            - RemoveResponseHeader=X-Response-Foo #删除指定响应头参数
+#            - RemoveRequestParameter=red #删除请求参数
 
         - id: payment_route3
           uri: http://news.baidu.com/guonei
