@@ -25,8 +25,9 @@
     <module>consumer-feign-Hystrix-80</module>
     <module>consumer-hystrix-dashboard-9001</module>
     <module>geteway-9527</module>
-      <module>stream-rabbitmq-provider8801</module>
-      <module>stream-rabbitmq-consumer8802</module>
+    <module>stream-rabbitmq-provider8801</module>
+    <module>stream-rabbitmq-consumer8802</module>
+    <module>stream-rabbitmq-consumer8803</module>
 
 
   </modules>
