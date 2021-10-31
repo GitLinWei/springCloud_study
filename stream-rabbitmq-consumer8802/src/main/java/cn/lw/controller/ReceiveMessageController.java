@@ -1,4 +1,4 @@
-package cn.lw;
+package cn.lw.controller;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.stream.annotation.EnableBinding;
@@ -20,6 +20,6 @@ public class ReceiveMessageController {
 
     @StreamListener(Sink.INPUT)
     public void input(Message<String>message){
-        System.out.println("消息消费者1号***接收到的消息"+message.getPayload()+"\t port"+serverport);
+        System.out.println("消息消费者1号***接收到的消息"+message.getPayload()+"\t port:"+serverport);
     }
 }

@@ -6,4 +6,5 @@ package cn.lw.service;
  * @Description TODO
  */
 public interface MessageProvider {
+    public String send();
 }
